@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+<script>
+    var cas = document.querySelectorAll( 'canvas' )[ 0 ];
+    var ctx = cas.getContext( '2d' );
+
+    ctx.translate(50, 350);
+    ctx.scale(1, -1);
+
+    //坐标系与中学时代 一致
+    //绘制坐标轴
+
+    ctx.lineWidth = 2;
+    ctx.moveTo(0, 0);
+    ctx.lineTo(500, 0);
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, 300)
+    ctx.stroke();
+
+    //绘制一个 50， 50 的点
+    ctx.beginPath();//继承以前的样式
+
+    ctx.strokeStyle = 'red';
+    ctx.moveTo(150, 50);
+    ctx.arc(50, 50, 4, 0, 2 * Math.PI);
+
+    //绘制第二元
+    ctx.moveTo(50, 100);
+    ctx.arc(50, 100, 8, 0, 2*Math.PI)
+
+    ctx.moveTo(50, 160);
+    ctx.arc(50, 160, 16, 0, 2*Math.PI);
+
+    ctx.moveTo(50, 240);
+    ctx.arc(50, 240, 32, 0, 2*Math.PI);
+    ctx.fill()
+</script>
+</html>

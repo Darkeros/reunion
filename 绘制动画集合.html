@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+<script>
+    var cas = document.querySelectorAll( 'canvas' )[ 0 ];
+    var ctx = cas.getContext( '2d' );
+    
+    var img = document.createElement('img');
+    img.src= "./1.png";
+    var ix = 0;//记录绘制图片的第几列
+
+    var dy = 100;//绘制到画布上的 y 坐标
+        marky = 1;//控制画布上 y 的方向
+    img.onload = function(){
+      
+      //宽高
+      var width = img.width / 4,
+          height = img.height / 4;
+//计算小人的坐标和尺寸
+      var x = 0,
+          y = 0;
+      ctx.drawImage(img, x, y, width, height, 100, 100, width, height); 
+
+      setInterval(function(){
+        ctx.clearRect(0, 0, 600, 400);
+
+        ctx.drawImage( img, x, y, width, height, 100, dy, width, height);
+
+        x = width * ix;
+
+        if (ix + 1 ==4) {
+          ix = 0;
+        }else{
+          ix++;
+        }
+
+        dy += marky * 6;
+        if (dy > 400 - height) {
+          marky *= -1;
+        }else{
+          if (dy < 0) {
+            marky *= -1;
+          }
+          
+        }
+      },200)       
+    }
+</script>
+</html>

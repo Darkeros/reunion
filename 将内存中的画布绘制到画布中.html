@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+<script>
+    var cas = document.querySelectorAll( 'canvas' )[ 0 ];
+    var ctx = cas.getContext( '2d' );
+    
+    var canvas = document.createElement('canvas');
+    canvas.width = 290;
+    canvas.height = 1;
+
+    //相当于坐标变换
+    var context = canvas.getContext("2d");
+    // context.fillRect(0, 0, 200, 100);
+
+    // ctx.drawImage(canvas, 100, 100) 
+    context.lineWidth = 2;
+    context.moveTo(0, 0);
+    context.lineTo(290, 0);
+    context.stroke();
+
+    ctx.drawImage(canvas ,10 ,5)
+</script>
+</html>

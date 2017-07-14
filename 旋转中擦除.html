@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+<script>
+    var cas = document.querySelectorAll( 'canvas' )[ 0 ];
+    var ctx = cas.getContext( '2d' );
+    // 
+    // 绘制满屏的颜色
+    ctx.fillStyle = 'red';
+    ctx.fillRect(0, 0, 600, 400)
+    ctx.translate(300, 200);
+
+    // ctx.clearRect(-50, -25, 100, 50);
+    ctx.rotate( Math.PI / 6);
+
+    ctx.clearRect(-300, -200, 600, 400)
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        canvas {
+            border: 1px dashed red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="500"></canvas>
+    <!--<img src="./timg.jpg" alt="">-->
+</body>
+<script>
+    var cas = document.querySelectorAll( 'canvas' )[ 0 ];
+    var ctx = cas.getContext( '2d' );
+    
+    var img = document.createElement('img');
+    img.src = './timg.jpg';
+    img.onload = function(){
+        //图片显示区域 x，y  
+        ctx.drawImage(img, 390, 50, 370, 400, 115, 50, 370 / 2, 400 / 2);
+    }
+</script>
+</html>
